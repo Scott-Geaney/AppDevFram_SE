@@ -13,11 +13,15 @@ import org.springframework.context.annotation.Bean;
 @NoArgsConstructor
 public class Pet {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     private String name;
     private int age;
     private String animal_type;
     private String breed; // need to change these sometime to do with convential over convenice
 
+    @ManyToOne
+    @JoinColumn(name = "eircode", referencedColumnName = "eircode")
+    private Household household;
 }
